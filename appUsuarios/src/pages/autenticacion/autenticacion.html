@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Autenticacion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form [formGroup]="loginForm">
+    <ion-list>
+       
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Contraseña</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+    </ion-list>
+    
+    <div padding>
+      <button ion-button primary block (click)="signin()" [disabled]="!loginForm.valid">Iniciar sesion</button>
+    </div>
+    
+    <div padding>
+      <button ion-button full clear favorite (click)="createAccount()">
+          <ion-icon name="person"></ion-icon>
+          Registrarse</button>
+    </div>
+   </form>
+</ion-content>

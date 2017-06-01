@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Reservas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <div class="div">
+      <div class="fecha">
+        <label>Fecha: </label>
+          <ion-datetime id="b" class="b"
+            displayFormat="DD/MM/YYYY"
+            pikerFormat="YYY  DD MM"
+            [(ngModel)]="fecha"
+            cancelText="Cancelar"
+            doneText="OK"
+            min={{minFecha}}
+            max={{maxFecha}}
+            (ionChange)="verDia(fecha)"
+            >            
+          </ion-datetime>
+        
+      </div>     
+  </div>
+
+  <ion-list *ngFor="let z of a">
+    <ion-item class="item-divider">
+      {{z.clave}}
+    </ion-item>
+    <ion-item>
+      <ion-list *ngFor="let x of z.valor">
+        <button id="{{z.clave}}" ion-button (click)="reservar($event)">
+          {{x}}
+        </button>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button button-possitive (click)="logout()">Cerrar sesión</button>
+</ion-content>

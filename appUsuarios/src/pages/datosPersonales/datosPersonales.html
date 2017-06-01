@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Datos personales</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<form [formGroup]="datos">
+    <ion-list *ngFor="let us of usuario | async">
+        <ion-item>
+            <ion-label >Nombre de usuario</ion-label>
+            <ion-input type="text" id="usuario" formControlName="usuario" value="{{us.usuario}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Nombre</ion-label>
+            <ion-input type="text" id="nombre" formControlName="nombre" value="{{us.nombre}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >DNI</ion-label>
+            <ion-input type="text" id="dni" formControlName="dni" value="{{us.dni}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Telefono</ion-label>
+            <ion-input type="number" id="telefono" formControlName="telefono" value="{{us.telefono}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Nivel de juego</ion-label>
+                <ion-select id="nivel" formControlName="nivel" required>
+                    <ion-option>Bajo</ion-option>
+                    <ion-option>Medio</ion-option>
+                    <ion-option>Alto</ion-option>
+                </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label >Abonado</ion-label>
+            <ion-toggle id="abonado"  checked={{us.abonado}} (ionChange)="actualizarAbonado()"></ion-toggle>
+        </ion-item>
+
+    </ion-list>
+
+    <div>
+      <button ion-button full clear favorite (click)="guardar(datos.value)" [disabled]="!datos.valid">
+          <ion-icon name="person"></ion-icon>
+          Guardar</button>
+        <button ion-button full clear favorite (click)="cancelar()">Cancelar</button>
+    </div>
+</form>
+</ion-content>
