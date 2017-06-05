@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Datos usuario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<form [formGroup]="datos">
+    <ion-list>
+        <ion-item>
+            <ion-label >Nombre de la pista</ion-label>
+            <ion-input type="text" id="nombre" formControlName="nombre" value="{{nombre}}" readonly="readonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Descripcion</ion-label>
+            <ion-input type="text" id="descripcion" formControlName="descripcion" value="{{descripcion}}" readonly="readonly"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <div>
+        <button ion-button (click)="cancelar()">Cancelar</button>
+        <button ion-button (click)="eliminar()">Eliminar</button>
+    </div>
+</form>
+</ion-content>

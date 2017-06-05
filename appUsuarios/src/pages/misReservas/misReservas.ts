@@ -19,6 +19,7 @@ export class MisReservas {
   user:any;
   reservas:any
   nombre:any;
+  us: any;
 
   constructor(public navCtrl: NavController,  
               public alertCtrl: AlertController, public af: AngularFire, 
@@ -29,12 +30,26 @@ export class MisReservas {
     let recogidas = false;
     this.user = firebase.auth().currentUser;
 
-    this.reservas = af.database.list('/Reservas', {
-      query: {
-        orderByChild: 'uidUsuario',
-        equalTo: this.user.uid
-      }
+    this.usuario = this.af.database.list('/Usuarios', {
+        query: {
+            orderByChild: 'uid',
+            equalTo: this.user.uid
+        }
+    });
+
+    this.usuario.subscribe(items => {
+      items.forEach(u => {
+        this.us = u.usuario
+      })
+      this.reservas = af.database.list('/Reservas', {
+        query: {
+          orderByChild: 'usuario',
+          equalTo: this.us
+        }
+      })
     })
+
+
   }
 
   logout(){

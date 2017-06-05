@@ -32,6 +32,7 @@ export class VerReserva {
     us: any;
     numabonados: any;
     numnoabonados: any;
+    num:any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -68,6 +69,7 @@ export class VerReserva {
     this.usuario = this.navParams.get('usuario');
     this.dia = this.navParams.get('dia');
     this.uid = this.navParams.get('uid');
+    this.num = parseInt(this.navParams.get('ab')) + parseInt(this.navParams.get('noab'));
 
     this.reserva = this.af.database.list('/Reservas', {
         query: {

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Lista de usuarios
+    </ion-title>
+  </ion-navbar>
+</ion-header>   
+
+<ion-content >
+  <button ion-button (click)='crearUsuario()' color="secondary">Crear usuario</button><br><br><br>
+  <label>Los usuarios existentes son:</label><br><br>
+    <ion-list *ngFor="let u of usuarios | async">
+        <button ion-button (click)="verUsuario(u, u.$key)">{{u.nombre}}</button>
+    </ion-list>
+</ion-content>
+

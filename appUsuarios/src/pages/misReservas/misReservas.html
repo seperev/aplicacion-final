@@ -14,7 +14,6 @@
         <ion-list>
         
         <ion-list *ngFor="let res of reservas | async">
-          <ion-label> hola</ion-label>
           <ion-item>
               <ion-label >Nombre</ion-label>
               <ion-input type="text" id="nombre"  value="{{res.nombre}}" readonly="readonly"></ion-input>

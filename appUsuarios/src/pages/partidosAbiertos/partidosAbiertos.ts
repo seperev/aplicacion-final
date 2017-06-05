@@ -78,6 +78,8 @@ export class PartidosAbiertos {
     let usuario = r.usuario;
     let dia = r.dia;
     let uid = r.uid;
+    let ab = r.abonados;
+    let noab = r.noabonados;
    
 
     this.navCtrl.push(VerReserva, {
@@ -88,7 +90,9 @@ export class PartidosAbiertos {
       usuario: usuario,
       dia: dia,
       uid: uid,
-      abonado: this.abonado
+      abonado: this.abonado,
+      ab: ab,
+      noab: noab
     })
   }
   

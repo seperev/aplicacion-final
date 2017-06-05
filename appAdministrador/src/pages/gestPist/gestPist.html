@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Lista de pistas
+    </ion-title>
+  </ion-navbar>
+</ion-header>   
+
+<ion-content >
+    <button ion-button (click)='crearPista()' color="secondary">Crear pista</button><br><br><br>
+    <label>Las pistas existentes son:</label><br><br>
+    <ion-list *ngFor="let p of pistas | async">
+        <button ion-button (click)="verPista(p, p.$key)">{{p.nombre}}</button>
+    </ion-list>
+</ion-content>
+

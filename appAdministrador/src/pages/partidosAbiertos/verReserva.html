@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Reserva</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+    <ion-list>
+        <ion-item>
+            <ion-label >Nombre</ion-label>
+            <ion-input type="text" id="nombre"  value="{{nombre}}" readonly="readonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Dia</ion-label>
+            <ion-input type="text" id="dia"  value="{{dia}}" readonly="readonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Hora inicio</ion-label>
+            <ion-input type="text" id="inicio"  value="{{inicio}}" readonly="readonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Usuario</ion-label>
+            <ion-input type="text" id="usuario"  value="{{usuario}}" readonly="readonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Pista</ion-label>
+            <ion-input type="text" id="pista"  value="{{pista}}" readonly="readonly"></ion-input>
+        </ion-item>
+        
+    </ion-list>
+
+    <div>
+      <button ion-button full clear favorite (click)="unirse()" >Unirse</button>
+    </div>
+
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Registro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form [formGroup]="loginForm">
+    <ion-list>
+        <ion-item>
+            <ion-label >Email</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Contraseña</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+    </ion-list>
+</form>
+<form [formGroup]="login">
+    <ion-list>
+        <ion-item>
+            <ion-label>Nombre de usuario</ion-label>
+            <ion-input type="text" id="usuario" formControlName="usuario" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Nombre</ion-label>
+            <ion-input type="text" id="nombre" formControlName="nombre" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >DNI</ion-label>
+            <ion-input type="text" id="dni" formControlName="dni" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Telefono</ion-label>
+            <ion-input type="number" id="telefono" formControlName="telefono" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Nivel de juego</ion-label>
+                <ion-select id="nivel" formControlName="nivel" required>
+                    <ion-option>Bajo</ion-option>
+                    <ion-option>Medio</ion-option>
+                    <ion-option>Alto</ion-option>
+                </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label >Abonado</ion-label>
+            <ion-toggle id="abonado"></ion-toggle>
+        </ion-item>
+    </ion-list>
+
+    <div>
+      <button ion-button full clear favorite (click)="createAccount()" [disabled]="!loginForm.valid">
+          <ion-icon name="person"></ion-icon>
+          Crear cuenta</button>
+    </div>
+</form>
+</ion-content>

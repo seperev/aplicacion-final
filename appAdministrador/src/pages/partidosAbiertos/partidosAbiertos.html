@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Lista de reservas abiertas
+    </ion-title>
+  </ion-navbar>
+</ion-header>   
+
+<ion-content >
+
+    <ion-list *ngFor="let r of res | async">
+        <button ion-button (click)="verReserva(r)">{{r.nombre}}</button>
+    </ion-list>
+</ion-content>
+

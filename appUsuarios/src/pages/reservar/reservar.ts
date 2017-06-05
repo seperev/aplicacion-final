@@ -59,7 +59,7 @@ export class Reservar {
     })
     this.usuario.subscribe(items => {
       items.forEach(usuario => {
-        this.nombre = usuario.nombre;
+        this.nombre = usuario.usuario;
       })
     })    
   }
@@ -99,8 +99,7 @@ export class Reservar {
         abonados: ab,
         noabonados: noab,
         usuario: this.nombre,
-        completo: true,
-        uidUsuario: this.user.uid
+        completo: true
       })
       this.navCtrl.push(MyApp);
     }
@@ -128,8 +127,7 @@ export class Reservar {
         abonados: ab,
         noabonados: noab,
         usuario: this.nombre,
-        completo: false,
-        uidUsuario: this.user.uid
+        completo: false
       })
       this.navCtrl.push(MyApp);
     }

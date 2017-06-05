@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Crear pista</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form [formGroup]="form">
+    <ion-list>
+        <ion-item>
+            <ion-label >Nombre de la pista</ion-label>
+            <ion-input type="text" formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Descripcion</ion-label>
+            <ion-input type="text" formControlName="descripcion"></ion-input>
+        </ion-item>
+    </ion-list>
+    <div>
+        <button ion-button full clear favorite (click)="crearPista()"> Crear pista</button>
+    </div>
+</form>
+</ion-content>
