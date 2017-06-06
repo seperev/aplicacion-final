@@ -70,7 +70,7 @@ export class Reservar {
           
           terminado = true;
         })
-      
+        console.log(encontrado);
         if(terminado){
         if(encontrado){
           ab = parseInt(r.abonados);
@@ -95,12 +95,12 @@ export class Reservar {
             this.reservas.push({
               dia: this.dia,
               horaInicio: this.hora,
-              nombre: 'Reserva de ' + this.usuario,
+              nombre: 'Reserva de ' + r.usuario,
               nombrePista: this.pista,
               uid: this.dia + '-' + this.hora + '-' + this.pista,
               abonados: ab,
               noabonados: noab,
-              usuario: this.usuario,
+              usuario: r.usuario,
               completo: true
             })
             this.navCtrl.push(MyApp);
@@ -123,24 +123,25 @@ export class Reservar {
             this.reservas.push({
               dia: this.dia,
               horaInicio: this.hora,
-              nombre: 'Reserva de ' + this.usuario,
+              nombre: 'Reserva de ' + r.usuario,
               nombrePista: this.pista,
               uid: this.dia + '-' + this.hora + '-' + this.pista,
               abonados: ab,
               noabonados: noab,
-              usuario: this.usuario,
+              usuario: r.usuario,
               completo: false
             })
             this.navCtrl.push(MyApp);
           }
         }
-        }
+        
         else{
                 let toast = this.toastCtrl.create({
                   message: 'El nombre de usuario no existe',
                   duration: 3000
                 });
                 toast.present();          
+        }
         }
          
       });

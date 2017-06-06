@@ -93,7 +93,8 @@ export class Registro {
                 nivelJuego: datos.nivel,
                 usuario: datos.usuario
               });
-        creado = true;
+        this.navCtrl.push(MyApp);
+        //creado = true;
 
       }, (error) => {
         if(error.message == 'The email address is badly formatted.'){
@@ -120,10 +121,10 @@ export class Registro {
         console.log(error.message); 
         creado = false;
       });
-
+/*
       if(creado){
         this.navCtrl.push(MyApp);
-      }
+      }*/
       }
     }
     

@@ -31,6 +31,7 @@ export class VerRes {
     ab: any;
     noab: any;
     pista: any;
+    dia: any;
 
 
   constructor(public navCtrl: NavController, 
@@ -48,6 +49,7 @@ export class VerRes {
     this.hora = this.navParams.get('hora');
     this.ab = this.navParams.get('ab');
     this.noab = this.navParams.get('noab');
+    this.dia = this.navParams.get('dia');
 
 
     this.reservas = this.af.database.list('/Reservas');
@@ -67,7 +69,8 @@ export class VerRes {
         pista: new FormControl(this.navParams.get('pista')),
         hora: new FormControl(this.navParams.get('hora')),
         ab: new FormControl(this.navParams.get('abonado')),
-        noab: new FormControl(this.navParams.get('noab'))
+        noab: new FormControl(this.navParams.get('noab')),
+        dia: new FormControl(this.navParams.get('dia'))
     })
   }
 

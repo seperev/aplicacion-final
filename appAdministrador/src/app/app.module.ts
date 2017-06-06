@@ -16,6 +16,7 @@ import { VerRes } from '../pages/gestRes/verRes'
 import { GestPist } from '../pages/gestPist/gestPist'
 import { VerPist } from '../pages/gestPist/verPist'
 import { CrearPista } from '../pages/crearPista/crearPista'
+import { Estadisticas } from '../pages/estadisticas/estadisticas'
 
 import { Auth } from '../pages/autenticacion/autenticacion';
 import { AuthProvider } from '../providers/auth-provider';
@@ -56,7 +57,8 @@ const myFirebaseAuthConfig = {
     VerRes,
     GestPist,
     VerPist,
-    CrearPista
+    CrearPista,
+    Estadisticas
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -79,7 +81,8 @@ const myFirebaseAuthConfig = {
     VerRes,
     GestPist,
     VerPist,
-    CrearPista
+    CrearPista,
+    Estadisticas
   ],
   providers: [
     StatusBar,

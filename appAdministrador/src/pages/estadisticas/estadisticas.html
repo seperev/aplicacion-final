@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Estadisticas
+    </ion-title>
+  </ion-navbar>
+</ion-header>   
+
+<ion-content >
+
+<h2>Mas usado</h2> <br>
+  <label>Por lo tanto, la hora mas usada es: {{hor}} </label> <br><br>
+  <label>Por lo tanto, la pista más usada es: {{pist}} </label> <br> <br>
+
+<h2>Pistas</h2>
+  <ion-list *ngFor="let pi of pistas">
+      <ion-item>
+          <label>La pista {{pi.clave}} ha sido usada un numero de veces: {{pi.valor}}</label>
+      </ion-item>
+  </ion-list>
+
+<h2>Horas</h2>
+  <ion-list *ngFor="let h of horas">
+      <ion-item>
+          <label>La hora {{h.clave}} ha sido reservada un numero de veces: {{h.valor}}</label>
+      </ion-item>
+  </ion-list>
+  <br>
+
+
+</ion-content>
+

@@ -16,10 +16,6 @@ import { VerReserva } from '../partidosAbiertos/verReserva'
 })
 export class PartidosAbiertos {
 
-  fechaCorta: string = new Date().toISOString();
-  fecha: string = this.fechaCorta;
-  minFecha: string = (new Date().getFullYear()-5).toString();
-  maxFecha: string = (new Date().getFullYear()+3).toString();
   reservasRef: any = firebase.database().ref('Reservas');
   res: any;
 
@@ -54,23 +50,9 @@ export class PartidosAbiertos {
                 });
   }
 
-    verDia(fecha){
-    console.log(fecha);
-    console.log(this.res);
-    
-    this.res = this.af.database.list('/Reservas', {
-      query: {
-        orderByChild: 'dia',
-        equalTo: this.fecha.substr(0,10)
-      }
-    });
-
-
-    
-  }
-
 
   verReserva(r){
+    
     let nombre = r.nombre;
     let inicio = r.horaInicio;
     let fin = r.horaFin;

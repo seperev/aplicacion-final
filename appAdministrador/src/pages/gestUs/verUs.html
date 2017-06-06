@@ -13,23 +13,23 @@
     <ion-list>
         <ion-item>
             <ion-label>Nombre de usuario</ion-label>
-            <ion-input type="text" id="us" formControlName="us" value="{{us}}"></ion-input>
+            <ion-input type="text" id="us"  value="{{us}}" readonly="readonly"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label >Nombre</ion-label>
-            <ion-input type="text" id="nombre" formControlName="nombre" value="{{nombre}}"></ion-input>
+            <ion-input type="text" id="nombre" formControlName="nombre" value="{{nombre}}" required></ion-input>
         </ion-item>
         <ion-item>
             <ion-label >DNI</ion-label>
-            <ion-input type="text" id="dni" formControlName="dni" value="{{dni}}"></ion-input>
+            <ion-input type="text" id="dni" formControlName="dni" value="{{dni}}" required></ion-input>
         </ion-item>
         <ion-item>
             <ion-label >Telefono</ion-label>
-            <ion-input type="number" id="telefono" formControlName="telefono" value="{{telefono}}"></ion-input>
+            <ion-input type="number" id="telefono" formControlName="telefono" value="{{telefono}}" required></ion-input>
         </ion-item>
         <ion-item>
             <ion-label >Nivel de juego</ion-label>
-                <ion-select id="nivel" formControlName="nivel" >
+                <ion-select id="nivel" formControlName="nivel" required>
                     <ion-option>Bajo</ion-option>
                     <ion-option>Medio</ion-option>
                     <ion-option>Alto</ion-option>

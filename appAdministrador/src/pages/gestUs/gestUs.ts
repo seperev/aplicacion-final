@@ -33,7 +33,6 @@ export class GestUs {
     let telefono = u.telefono;
     let abonado = u.abonado;
     let nivel = u.nivel;
-    let notificaciones = u.notificaciones;
     let ref = firebase.database().ref('Usuarios/' + clave);
 
     this.navCtrl.push(VerUs, {
@@ -43,7 +42,6 @@ export class GestUs {
       telefono: telefono,
       abonado: abonado,
       nivel: nivel,
-      noti: notificaciones,
       referencia: ref
     })
   }

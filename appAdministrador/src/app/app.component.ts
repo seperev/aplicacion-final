@@ -13,7 +13,8 @@ import { DatosPersonales } from '../pages/datosPersonales/datosPersonales';
 import { PartidosAbiertos } from '../pages/partidosAbiertos/partidosAbiertos';
 import { GestUs } from '../pages/gestUs/gestUs';
 import { GestRes } from '../pages/gestRes/gestRes';
-import { GestPist } from '../pages/gestPist/gestPist'
+import { GestPist } from '../pages/gestPist/gestPist';
+import { Estadisticas } from '../pages/estadisticas/estadisticas'
 
 
 
@@ -36,7 +37,8 @@ export class MyApp {
       { title: 'Reservas', component: Reservas },
       { title: 'Gestion usuarios', component: GestUs },
       { title: 'Gestion reservas', component: GestRes },
-      { title: 'Gestion pistas', component: GestPist}
+      { title: 'Gestion pistas', component: GestPist},
+      { title: 'Estadisticas', component: Estadisticas}
     ];
 
   }

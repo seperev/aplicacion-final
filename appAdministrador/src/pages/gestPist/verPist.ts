@@ -43,7 +43,7 @@ export class VerPist {
     this.pistas = this.af.database.list('/Pistas');
     this.pista = this.af.database.list('/Pistas', {
         query: {
-            orderByChild: 'uid',
+            orderByChild: 'nombre',
             equalTo: this.nombre
         }
     });

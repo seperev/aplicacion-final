@@ -34,6 +34,7 @@ export class GestRes {
     let ref = firebase.database().ref('Reservas/' + clave);
     let ab = r.abonados;
     let noab = r.noabonados;
+    let dia = r.dia;
 
     this.navCtrl.push(VerRes, {
       us: us,
@@ -43,7 +44,8 @@ export class GestRes {
       referencia: ref,
       hora: hora,
       ab: ab,
-      noab: noab
+      noab: noab,
+      dia: dia
     })
   }
 

@@ -36,26 +36,9 @@ export class VerReserva {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public af: AngularFire,
-              //public auth: AuthProvider,
-              //public data: DataProvider
               ) 
   {
-
-    /*
-    this.user = firebase.auth().currentUser; 
-    this.us = af.database.list('/Usuarios', {
-      query: {
-        orderByChild: 'uid',
-        equalTo: this.user.uid
-      }
-    }); 
-    this.us.subscribe(items => {
-        items.forEach(u => {
-            this.abonado = u.abonado
-        })
-        console.log(this.abonado);
-    })
-    */
+    
 
     this.abonado = this.navParams.get('abonado');
     console.log(this.abonado);
