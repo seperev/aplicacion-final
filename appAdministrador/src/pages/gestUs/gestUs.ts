@@ -9,6 +9,7 @@ import { Registro } from '../registro/registro'
 
 import firebase from 'firebase';
 
+import { AuthProvider } from '../../providers/auth-provider';
 
 @Component({
   selector: 'page-gestUs',
@@ -21,7 +22,8 @@ export class GestUs {
 
   constructor(public navCtrl: NavController,  
               public alertCtrl: AlertController, public af: AngularFire, 
-              public actionSheetCtrl: ActionSheetController
+              public actionSheetCtrl: ActionSheetController, 
+              public auth:AuthProvider,
               ) {    
                   this.usuarios = this.af.database.list('/Usuarios');
   }
@@ -48,6 +50,10 @@ export class GestUs {
 
   crearUsuario(){
     this.navCtrl.push(Registro);
+  }
+
+    logout(){
+    this.auth.logout();
   }
 
 }

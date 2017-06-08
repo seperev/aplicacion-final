@@ -9,6 +9,8 @@ import { CrearPista } from '../crearPista/crearPista'
 
 import firebase from 'firebase';
 
+import { AuthProvider } from '../../providers/auth-provider';
+
 
 @Component({
   selector: 'page-gestPist',
@@ -21,7 +23,8 @@ export class GestPist {
 
   constructor(public navCtrl: NavController,  
               public alertCtrl: AlertController, public af: AngularFire, 
-              public actionSheetCtrl: ActionSheetController
+              public actionSheetCtrl: ActionSheetController, 
+              public auth:AuthProvider,
               ) {    
                   this.pistas = this.af.database.list('/Pistas');
   }
@@ -40,6 +43,10 @@ export class GestPist {
 
   crearPista(){
     this.navCtrl.push(CrearPista);
+  }
+
+    logout(){
+    this.auth.logout();
   }
 
 }

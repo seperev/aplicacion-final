@@ -6,26 +6,40 @@
     <ion-title>
       Estadisticas
     </ion-title>
+    
+    <ion-buttons end>
+      <button ion-button color="danger" (click)="logout()">Cerrar sesión</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>   
 
 <ion-content >
 
-<h2>Mas usado</h2> <br>
-  <label>Por lo tanto, la hora mas usada es: {{hor}} </label> <br><br>
-  <label>Por lo tanto, la pista más usada es: {{pist}} </label> <br> <br>
+<h2>Más usado</h2>
+        <ion-item>
+            <ion-label>La hora más usada es:  </ion-label>
+            <ion-input type="text" readonly="readonly" value="{{hor}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>La pista más usada es:  </ion-label>
+            <ion-input type="text" readonly="readonly" value="{{pist}}"></ion-input>
+        </ion-item>
 
-<h2>Pistas</h2>
+<br>
+<h2>Nº de veces reservada cada pista</h2>
   <ion-list *ngFor="let pi of pistas">
       <ion-item>
-          <label>La pista {{pi.clave}} ha sido usada un numero de veces: {{pi.valor}}</label>
+          <ion-label text-wrap>{{pi.clave}} :  </ion-label>
+          <ion-input type="text" readonly="readonly" value="{{pi.valor}}"></ion-input>
       </ion-item>
   </ion-list>
 
-<h2>Horas</h2>
+<br>
+<h2>Nº de reservas en cada hora</h2>
   <ion-list *ngFor="let h of horas">
       <ion-item>
-          <label>La hora {{h.clave}} ha sido reservada un numero de veces: {{h.valor}}</label>
+          <ion-label text-wrap>{{h.clave}}:00  : </ion-label>
+          <ion-input type="text" readonly="readonly" value="{{h.valor}}"></ion-input>
       </ion-item>
   </ion-list>
   <br>

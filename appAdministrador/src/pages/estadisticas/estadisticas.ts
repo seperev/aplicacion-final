@@ -8,6 +8,8 @@ import { VerRes } from '../gestRes/verRes';
 
 import firebase from 'firebase';
 
+import { AuthProvider } from '../../providers/auth-provider';
+
 
 @Component({
   selector: 'page-estadisticas',
@@ -26,7 +28,8 @@ export class Estadisticas {
 
   constructor(public navCtrl: NavController,  
               public alertCtrl: AlertController, public af: AngularFire, 
-              public actionSheetCtrl: ActionSheetController
+              public actionSheetCtrl: ActionSheetController, 
+              public auth:AuthProvider,
               ) {    
                   let pistasguardadas = false;
 
@@ -80,6 +83,10 @@ export class Estadisticas {
 
                   console.log(this.horas)
       
+  }
+
+  logout(){
+    this.auth.logout();
   }
 
 }

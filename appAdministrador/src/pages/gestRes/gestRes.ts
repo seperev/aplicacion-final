@@ -8,6 +8,7 @@ import { VerRes } from '../gestRes/verRes';
 
 import firebase from 'firebase';
 
+import { AuthProvider } from '../../providers/auth-provider';
 
 @Component({
   selector: 'page-gestRes',
@@ -20,7 +21,8 @@ export class GestRes {
 
   constructor(public navCtrl: NavController,  
               public alertCtrl: AlertController, public af: AngularFire, 
-              public actionSheetCtrl: ActionSheetController
+              public actionSheetCtrl: ActionSheetController, 
+              public auth:AuthProvider,
               ) {    
                   this.reservas = this.af.database.list('/Reservas');
   }
@@ -47,6 +49,10 @@ export class GestRes {
       noab: noab,
       dia: dia
     })
+  }
+
+    logout(){
+    this.auth.logout();
   }
 
 }
