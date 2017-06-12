@@ -122,7 +122,7 @@ export class DatosPersonales {
                 abonado: ab.lastChild.attributes.item(6).nodeValue,
                 nivelJuego: d.nivel,
                 usuario: d.usuario
-              })
+          })
           this.navCtrl.push(MyApp);
         }
       }
