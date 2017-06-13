@@ -62,12 +62,12 @@ export class DatosPersonales {
       })
       console.log('Ahora entra para llenar los datos del usuario');
         this.datos = new FormGroup({
-        nombre: new FormControl(this.nom),
-        dni: new FormControl(this.dn),
-        telefono: new FormControl(this.tel),
-        nivel: new FormControl(this.ni),
-        usuario: new FormControl(this.nomus)
-    })
+          nombre: new FormControl(this.nom),
+          dni: new FormControl(this.dn),
+          telefono: new FormControl(this.tel),
+          nivel: new FormControl(this.ni),
+          usuario: new FormControl(this.nomus)
+      })
     })
   }
 
