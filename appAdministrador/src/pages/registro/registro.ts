@@ -52,6 +52,10 @@ export class Registro {
     })
   }
 
+  cancelar(){
+    this.navCtrl.push(MyApp);
+  }
+
   createAccount() {
     let datos = this.login.value;
     let encontrado = false;

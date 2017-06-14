@@ -7,6 +7,7 @@ import { AngularFireModule, AuthMethods, FirebaseListObservable, AngularFire } f
 
 import { MyApp } from '../../app/app.component';
 import firebase from 'firebase';
+import { AuthProvider } from '../../providers/auth-provider'
 
 @Component({
   selector: 'page-verReserva',
@@ -37,6 +38,7 @@ export class VerReserva {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public af: AngularFire,
+              public auth: AuthProvider,
               //public auth: AuthProvider,
               //public data: DataProvider
               ) 
@@ -127,5 +129,11 @@ export class VerReserva {
     this.navCtrl.push(MyApp);
   }
 
+  logout(){
+    this.auth.logout();
+  }
+  cancelar(){
+      this.navCtrl.push(MyApp);
+  }
   
 }

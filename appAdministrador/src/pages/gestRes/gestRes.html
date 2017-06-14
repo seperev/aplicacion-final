@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Lista de reservas
+      Gestión de reservas
     </ion-title>
     
     <ion-buttons end>
@@ -14,10 +14,38 @@
 </ion-header>   
 
 <ion-content >
-  <br>
-  <label>Las reservas que se han realizado en la aplicacion son: </label><br><br>
+
+<div class="div">
+      <div class="fecha">
+        
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1>
+              <ion-label>Fecha: </ion-label>
+            </ion-col>
+            <ion-col col-2 padding>
+              <div style="border:1px solid" text-center>
+              <ion-datetime id="b" class="b"
+                displayFormat="DD/MM/YYYY"
+                pikerFormat="YYY  DD MM"
+                [(ngModel)]="fecha"
+                cancelText="Cancelar"
+                doneText="OK"
+                min={{minFecha}}
+                max={{maxFecha}}
+                >            
+              </ion-datetime>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>     
+  </div>
+
     <ion-list *ngFor="let r of reservas | async">
-        <button ion-button (click)="verReserva(r, r.$key)">{{r.nombre}}</button>
+      
+        <button *ngIf=" r.dia == fecha" ion-button (click)="verReserva(r, r.$key)">{{r.nombre}}</button>
+     
     </ion-list>
 </ion-content>
 

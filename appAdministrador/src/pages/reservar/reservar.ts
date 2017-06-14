@@ -52,6 +52,10 @@ export class Reservar {
     })  
   }
 
+  cancelar(){
+      this.navCtrl.push(MyApp);
+  }
+
   reservar(){
     let r = this.reserva.value;
     let us;
@@ -95,7 +99,7 @@ export class Reservar {
             this.reservas.push({
               dia: this.dia,
               horaInicio: this.hora,
-              nombre: 'Reserva de ' + r.usuario,
+              nombre: 'Reserva de ' + r.usuario + ' del ' + this.dia + ' a las ' + this.hora,
               nombrePista: this.pista,
               uid: this.dia + '-' + this.hora + '-' + this.pista,
               abonados: ab,
@@ -123,7 +127,7 @@ export class Reservar {
             this.reservas.push({
               dia: this.dia,
               horaInicio: this.hora,
-              nombre: 'Reserva de ' + r.usuario,
+              nombre: 'Reserva de ' + r.usuario + ' del ' + this.dia + ' a las ' + this.hora,
               nombrePista: this.pista,
               uid: this.dia + '-' + this.hora + '-' + this.pista,
               abonados: ab,

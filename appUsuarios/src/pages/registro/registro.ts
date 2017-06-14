@@ -134,4 +134,8 @@ export class Registro {
         this.navCtrl.push(Reservas);
     }*/
   };
+
+  cancelar(){
+      this.navCtrl.push(MyApp);
+  }
 }

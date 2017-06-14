@@ -8,6 +8,7 @@ import { NavController, AlertController, ActionSheetController } from 'ionic-ang
 import firebase from 'firebase';
 
 import { VerReserva } from '../partidosAbiertos/verReserva'
+import { AuthProvider } from '../../providers/auth-provider'
 
 
 @Component({
@@ -26,18 +27,15 @@ export class PartidosAbiertos {
   user: any;
   abonado: any;
   us: any;
+  usres: any;
+  nivel: any;
+  almacen = []; //aquí voy a almacenar cada reserva como clave y el nivel de usuario como valor
 
   constructor(public navCtrl: NavController,  
               public alertCtrl: AlertController, public af: AngularFire, 
-              public actionSheetCtrl: ActionSheetController
+              public actionSheetCtrl: ActionSheetController,
+              public auth: AuthProvider,
               ) {
-
-                this.res = af.database.list('/Reservas', {
-                    query: {
-                        orderByChild: 'completo',
-                        equalTo: false
-                    }
-                })
 
                 this.user = firebase.auth().currentUser; 
                 this.us = af.database.list('/Usuarios', {
@@ -49,26 +47,58 @@ export class PartidosAbiertos {
                 this.us.subscribe(items => {
                     items.forEach(u => {
                         this.abonado = u.abonado
+                        this.nivel = u.nivelJuego
                     })
                     console.log(this.abonado);
                 });
+
+                this.res = af.database.list('/Reservas', {
+                    query: {
+                        orderByChild: 'completo',
+                        equalTo: false
+                    }
+                })
+
+                this.res.subscribe(items => {
+                  items.forEach(r => {
+                    this.usres = af.database.list('/Usuarios', {
+                      query: {
+                        orderByChild: 'usuario',
+                        equalTo: r.usuario
+                      }
+                    });
+                    this.usres.subscribe(items=> {
+                      items.forEach(u => {
+                        if(u.nivelJuego == this.nivel){
+                          this.almacen.push(r.nombre);
+                          console.log(r.nombre);
+                          console.log('nivel',this.nivel)
+                          console.log('nivel del usuario de la reserva', u.nivelJuego)
+                        }
+                      })
+                    })
+                  })
+                })
+
+
   }
 
     verDia(fecha){
-    console.log(fecha);
-    console.log(this.res);
-    
-    this.res = this.af.database.list('/Reservas', {
-      query: {
-        orderByChild: 'dia',
-        equalTo: this.fecha.substr(0,10)
-      }
-    });
+      console.log(fecha);
+      console.log(this.res);
+      
+      this.res = this.af.database.list('/Reservas', {
+        query: {
+          orderByChild: 'dia',
+          equalTo: this.fecha.substr(0,10)
+        }
+      });  
+    }
 
 
-    
+  logout(){
+    this.auth.logout();
   }
-
 
   verReserva(r){
     let nombre = r.nombre;

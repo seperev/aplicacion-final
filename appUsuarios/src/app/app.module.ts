@@ -9,6 +9,7 @@ import { MisReservas } from '../pages/misReservas/misReservas'
 import { DatosPersonales } from '../pages/datosPersonales/datosPersonales'
 import { PartidosAbiertos } from '../pages/partidosAbiertos/partidosAbiertos'
 import { VerReserva } from '../pages/partidosAbiertos/verReserva'
+import { Res } from '../pages/misReservas/res'
 
 import { Auth } from '../pages/autenticacion/autenticacion';
 import { AuthProvider } from '../providers/auth-provider';
@@ -42,7 +43,8 @@ const myFirebaseAuthConfig = {
     MisReservas,
     DatosPersonales,
     PartidosAbiertos,
-    VerReserva
+    VerReserva,
+    Res
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -58,7 +60,8 @@ const myFirebaseAuthConfig = {
     MisReservas,
     DatosPersonales,
     PartidosAbiertos,
-    VerReserva
+    VerReserva,
+    Res
   ],
   providers: [
     StatusBar,

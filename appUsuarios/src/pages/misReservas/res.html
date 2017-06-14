@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Datos usuario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<form [formGroup]="datos">
+    <ion-list>
+        <ion-item>
+            <ion-label >Nombre de la reserva</ion-label>
+            <ion-input type="text" id="nombre" formControlName="nombre" value="{{nombre}}" readonly="readonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Nombre del usuario</ion-label>
+            <ion-input type="text" id="us" formControlName="us" value="{{us}}" readonly="readonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Dia</ion-label>
+            <ion-input type="text" id="dia" formControlName="dia" value="{{dia}}" readonly="readonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Hora de inicio</ion-label>
+            <ion-input type="text" id="hora" formControlName="hora" value="{{hora}}" readonly="readonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Pista</ion-label>
+            <ion-input type="text" id="pista" formControlName="pista" value="{{pista}}" readonly="readonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Numero de abonados</ion-label>
+            <ion-input type="number" id="ab" formControlName="ab" value={{ab}} readonly="readonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label >Numero de no abonados</ion-label>
+            <ion-input type="number" id="noab" formControlName="noab" value={{noab}} readonly="readonly"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <div>
+        <button ion-button color="danger" (click)="cancelar()">Cancelar</button>
+    </div>
+</form>
+</ion-content>

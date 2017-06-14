@@ -5,6 +5,7 @@ import { NavController, AlertController, ActionSheetController } from 'ionic-ang
 
 import { AuthProvider } from '../../providers/auth-provider';
 import { Reservar } from '../reservar/reservar';
+import { Res } from '../misReservas/res'
 
 import firebase from 'firebase';
 
@@ -50,6 +51,30 @@ export class MisReservas {
     })
 
 
+  }
+
+    verReserva(r, clave){
+    let us = r.usuario;
+    let nombre = r.nombre;
+    let hora = r.horaInicio;
+    let pista = r.nombrePista;
+    let uid = r.uid;
+    let ref = firebase.database().ref('Reservas/' + clave);
+    let ab = r.abonados;
+    let noab = r.noabonados;
+    let dia = r.dia;
+
+    this.navCtrl.push(Res, {
+      us: us,
+      nombre: nombre,
+      uid: uid,
+      pista: pista,
+      referencia: ref,
+      hora: hora,
+      ab: ab,
+      noab: noab,
+      dia: dia
+    })
   }
 
   logout(){

@@ -2,6 +2,9 @@
 
   <ion-navbar>
     <ion-title>Reserva</ion-title>
+    <ion-buttons end>
+      <button ion-button color="danger" (click)="logout()">Cerrar sesión</button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -39,7 +42,8 @@
     </ion-list>
 
     <div>
-      <button ion-button full clear favorite (click)="unirse()" >Unirse</button>
+      <button ion-button color="secondary" (click)="unirse()" >Unirse</button>
+      <button ion-button color="danger" (click)="cancelar()">Rechazar</button>
     </div>
 
 </ion-content>

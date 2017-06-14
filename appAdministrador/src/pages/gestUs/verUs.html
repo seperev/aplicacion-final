@@ -42,9 +42,9 @@
     </ion-list>
 
     <div>
-      <button ion-button (click)="guardar()" [disabled]="!datos.valid">Guardar</button>
-        <button ion-button (click)="cancelar()">Cancelar</button>
-        <button ion-button (click)="eliminar()">Eliminar</button>
+      <button ion-button color="secondary" (click)="guardar()" [disabled]="!datos.valid">Guardar</button>
+        <button ion-button color="danger" (click)="cancelar()">Cancelar</button>
+        <button ion-button color="danger" (click)="eliminar()">Eliminar</button>
     </div>
 </form>
 </ion-content>

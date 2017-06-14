@@ -4,6 +4,9 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Datos personales</ion-title>
+    <ion-buttons end>
+      <button ion-button color="danger" (click)="logout()">Cerrar sesión</button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +18,7 @@
     <ion-list *ngFor="let us of usuario | async">
         <ion-item>
             <ion-label >Nombre de usuario</ion-label>
-            <ion-input type="text" id="usuario" formControlName="usuario" value="{{us.usuario}}"></ion-input>
+            <ion-input type="text" id="usuario" formControlName="usuario" value="{{us.usuario}}" readonly="readonly"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label >Nombre</ion-label>
@@ -45,10 +48,8 @@
     </ion-list>
 
     <div>
-      <button ion-button full clear favorite (click)="guardar(datos.value)" [disabled]="!datos.valid">
-          <ion-icon name="person"></ion-icon>
-          Guardar</button>
-        <button ion-button full clear favorite (click)="cancelar()">Cancelar</button>
+      <button ion-button color="secondary" (click)="guardar(datos.value)" [disabled]="!datos.valid">Guardar</button>
+        <button ion-button  color="danger" (click)="cancelar()">Cancelar</button>
     </div>
 </form>
 </ion-content>

@@ -6,34 +6,16 @@
     <ion-title>
       Mis reservas
     </ion-title>
+    <ion-buttons end>
+      <button ion-button color="danger" (click)="logout()">Cerrar sesión</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-        <ion-list>
-        
-        <ion-list *ngFor="let res of reservas | async">
-          <ion-item>
-              <ion-label >Nombre</ion-label>
-              <ion-input type="text" id="nombre"  value="{{res.nombre}}" readonly="readonly"></ion-input>
-          </ion-item>
-          <ion-item>
-              <ion-label >Dia</ion-label>
-              <ion-input type="text" id="dia"  value="{{res.dia}}" readonly="readonly"></ion-input>
-          </ion-item>
-          <ion-item>
-              <ion-label >Hora inicio</ion-label>
-              <ion-input type="text" id="inicio"  value="{{res.horaInicio}}" readonly="readonly"></ion-input>
-          </ion-item>
-          <ion-item>
-              <ion-label >Usuario</ion-label>
-              <ion-input type="text" id="usuario"  value="{{res.usuario}}" readonly="readonly"></ion-input>
-          </ion-item>
-          <ion-item>
-              <ion-label >Pista</ion-label>
-              <ion-input type="text" id="pista"  value="{{res.nombrePista}}" readonly="readonly"></ion-input>
-          </ion-item>
-        </ion-list>
+      <ion-list *ngFor="let r of reservas | async">    
+        <button  ion-button (click)="verReserva(r, r.$key)">{{r.nombre}}</button>     
     </ion-list>
+
 </ion-content>

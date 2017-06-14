@@ -53,9 +53,10 @@
     </ion-list>
 
     <div>
-      <button ion-button full clear favorite (click)="createAccount()" [disabled]="!loginForm.valid">
+      <button ion-button color="secondary" (click)="createAccount()" [disabled]="!loginForm.valid">
           <ion-icon name="person"></ion-icon>
-          Crear cuenta</button>
+          Aceptar</button>
+    <button ion-button color="danger" (click)="cancelar()">Cancelar</button>
     </div>
 </form>
 </ion-content>

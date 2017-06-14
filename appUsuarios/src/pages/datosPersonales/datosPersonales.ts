@@ -88,6 +88,10 @@ export class DatosPersonales {
     console.log(this.datos);
   }
 
+  logout(){
+    this.auth.logout();
+  }
+
   guardar(dat){
 
     let encontrado = false;
@@ -98,36 +102,14 @@ export class DatosPersonales {
     let ab = document.getElementById('abonado');
     let nom = document.getElementById('dni');
 
-    console.log('datos al pulsar el boton',this.datos);
-
-    this.usuarios.subscribe(items => {
-      items.forEach(u => {
-        if(u.usuario == d.usuario){
-          let toast = this.toastCtrl.create({
-                message: 'El nombre de usuario ya existe',
-                duration: 3000
-              });
-              toast.present();
-              encontrado = true;
-        }
-        terminado = true;
-      })
-
-      if(terminado){
-        if(!encontrado){
-          this.referencia.update({
-                nombre: d.nombre,
-                dni: d.dni,
-                telefono: d.telefono,
-                abonado: ab.lastChild.attributes.item(6).nodeValue,
-                nivelJuego: d.nivel,
-                usuario: d.usuario
-          })
-          this.navCtrl.push(MyApp);
-        }
-      }
+    this.referencia.update({
+      nombre: d.nombre,
+      dni: d.dni,
+      telefono: d.telefono,
+      abonado: ab.lastChild.attributes.item(6).nodeValue,
+      nivelJuego: d.nivel
     })
-
+    this.navCtrl.push(MyApp);
   }
 
   actualizarAbonado(){

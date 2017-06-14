@@ -4,6 +4,9 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Reservas</ion-title>
+    <ion-buttons end>
+      <button ion-button color="danger" (click)="logout()">Cerrar sesión</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -12,19 +15,28 @@
 
   <div class="div">
       <div class="fecha">
-        <label>Fecha: </label>
-          <ion-datetime id="b" class="b"
-            displayFormat="DD/MM/YYYY"
-            pikerFormat="YYY  DD MM"
-            [(ngModel)]="fecha"
-            cancelText="Cancelar"
-            doneText="OK"
-            min={{minFecha}}
-            max={{maxFecha}}
-            (ionChange)="verDia(fecha)"
-            >            
-          </ion-datetime>
-        
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1>
+              <ion-label>Fecha: </ion-label>
+            </ion-col>
+            <ion-col col-2 padding>
+              <div style="border:1px solid" text-center>
+              <ion-datetime id="b" class="b"
+                displayFormat="DD/MM/YYYY"
+                pikerFormat="YYY  DD MM"
+                [(ngModel)]="fecha"
+                cancelText="Cancelar"
+                doneText="OK"
+                min={{minFecha}}
+                max={{maxFecha}}
+                (ionChange)="verDia(fecha)"
+                >            
+              </ion-datetime>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </div>     
   </div>
 
@@ -40,6 +52,4 @@
       </ion-list>
     </ion-item>
   </ion-list>
-
-  <button ion-button button-possitive (click)="logout()">Cerrar sesión</button>
 </ion-content>

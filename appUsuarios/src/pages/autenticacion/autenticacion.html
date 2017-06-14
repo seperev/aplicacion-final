@@ -23,13 +23,10 @@
     </ion-list>
     
     <div padding>
-      <button ion-button primary block (click)="signin()" [disabled]="!loginForm.valid">Iniciar sesion</button>
-    </div>
-    
-    <div padding>
-      <button ion-button full clear favorite (click)="createAccount()">
+      <button ion-button color="secondary" (click)="signin()" [disabled]="!loginForm.valid">Iniciar sesión</button>    
+      <button ion-button clear favorite (click)="createAccount()">
           <ion-icon name="person"></ion-icon>
-          Registrarse</button>
+          Registrarme</button>
     </div>
    </form>
 </ion-content>

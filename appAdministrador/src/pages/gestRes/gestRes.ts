@@ -18,6 +18,10 @@ export class GestRes {
 
   
   reservas: FirebaseListObservable<any>;
+  fechaCorta: string = new Date().toISOString();
+  fecha: string = this.fechaCorta.substr(0,10);
+  minFecha: string = (new Date().getFullYear()-5).toString();
+  maxFecha: string = (new Date().getFullYear()+3).toString();
 
   constructor(public navCtrl: NavController,  
               public alertCtrl: AlertController, public af: AngularFire, 
@@ -25,6 +29,7 @@ export class GestRes {
               public auth:AuthProvider,
               ) {    
                   this.reservas = this.af.database.list('/Reservas');
+                  console.log(this.fecha);
   }
 
   verReserva(r, clave){

@@ -6,13 +6,20 @@
     <ion-title>
       Lista de reservas abiertas
     </ion-title>
+    <ion-buttons end>
+      <button ion-button color="danger" (click)="logout()">Cerrar sesión</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>   
 
 <ion-content >
 
+
     <ion-list *ngFor="let r of res | async">
-        <button ion-button (click)="verReserva(r)">{{r.nombre}}</button>
+        <ion-list *ngFor="let a of almacen">
+            <button *ngIf="r.nombre == a" ion-button (click)="verReserva(r)">{{a}}</button>
+        </ion-list>
     </ion-list>
+
 </ion-content>
 

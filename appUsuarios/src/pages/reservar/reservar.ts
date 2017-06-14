@@ -10,6 +10,7 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { Reservas } from '../reservas/reservas';
 import { ToastController } from 'ionic-angular'
 import { MyApp } from '../../app/app.component'
+import { AuthProvider } from '../../providers/auth-provider';
 
 @Component({
   selector: 'page-reservar',
@@ -32,7 +33,8 @@ export class Reservar {
               public alertCtrl: AlertController, public af: AngularFire, 
               public actionSheetCtrl: ActionSheetController,
               public params: NavParams,
-              public toastCtrl: ToastController) {
+              public toastCtrl: ToastController, 
+              public auth:AuthProvider) {
 
     this.reservas = af.database.list('/Reservas');
 
@@ -93,7 +95,7 @@ export class Reservar {
       this.reservas.push({
         dia: this.dia,
         horaInicio: this.hora,
-        nombre: 'Reserva de ' + this.nombre,
+        nombre: 'Reserva de ' + this.nombre + ' del ' + this.dia + ' a las ' + this.hora,
         nombrePista: this.pista,
         uid: this.dia + '-' + this.hora + '-' + this.pista,
         abonados: ab,
@@ -121,7 +123,7 @@ export class Reservar {
       this.reservas.push({
         dia: this.dia,
         horaInicio: this.hora,
-        nombre: 'Reserva de ' + this.nombre,
+        nombre: 'Reserva de ' + this.nombre + ' del ' + this.dia + ' a las ' + this.hora,
         nombrePista: this.pista,
         uid: this.dia + '-' + this.hora + '-' + this.pista,
         abonados: ab,
@@ -132,6 +134,13 @@ export class Reservar {
       this.navCtrl.push(MyApp);
     }
     
+  }
+
+  logout(){
+    this.auth.logout();
+  }
+  cancelar(){
+      this.navCtrl.push(MyApp);
   }
 
 }

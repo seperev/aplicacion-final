@@ -24,7 +24,7 @@
           <ion-input type="text" formControlName="pista" id="pista" value={{pista}} readonly="readonly"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="number" id="abonados" formControlName="abonados" placeholder="Introduce el numero de jugadores abonados "></ion-input>
+            <ion-input type="number" id="abonados" formControlName="abonados" placeholder="Introduce el numero de jugadores abonados"></ion-input>
         </ion-item>
         <ion-item>
             <ion-input type="number" id="noabonados" formControlName="noabonados" placeholder="Introducel numero de jugadores no abonados"></ion-input>
@@ -32,6 +32,7 @@
     </ion-list>
 
     <button ion-button color="secondary" (click)="reservar()">Reservar pista</button>
+    <button ion-button color="danger" (click)="cancelar()">Cancelar</button>
 
 </form>
 </ion-content>
